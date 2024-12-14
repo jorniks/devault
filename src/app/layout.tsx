@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
+import NavBar from "@/components/navbar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`${montserrat.className} bg-gray-950 text-white antialiased`}>
         <RecoilContextProvider>
           <Web3ContextProvider>
+            <NavBar />
 
             {children}
 
