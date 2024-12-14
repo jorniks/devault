@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select"
 import Image from 'next/image';
 import { NETWORK_LABEL } from '@/lib/network-list';
-import { Button } from '@/components/button';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import useNetworkTokenBalance from '@/hooks/read/useNetworkTokenBalance'
 import { CHAIN_INFO, defaultChainId } from '@/lib/services/chain-config';

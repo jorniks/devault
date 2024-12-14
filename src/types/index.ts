@@ -1,35 +1,3 @@
-export interface TokenBalance {
-  name: string;
-  balance: number;
-}
-
-export type CampaignType = {
-  id: number;
-  creator: string;
-  description: string;
-  createdAt: number;
-  endDate: number;
-  goal: number;
-  imageLink: string;
-  status: number;
-  tokenDecimals: number;
-  preferredToken: string;
-  title: string;
-  totalRaised: number;
-  contributions: Contribution[];
-}
-
-export type Contribution = {
-  contributor: string;
-  amount: number;
-  timestamp: number;
-}
-
-export type CountdownTimerProps = {
-  timestamp: number | undefined;
-  clockOnly?: boolean;
-}
-
 export type TimerState = {
   days: string;
   hours: string;
@@ -45,4 +13,21 @@ export enum ApprovalType {
   APPROVED = 'APPROVED',
 }
 
-export enum CampaignStatus { Active, Ended, Cancelled, Claimed }
+export interface NFT {
+  params: {
+    name: string
+    url: string
+    "url-b64": string
+    "unit-name": string
+    total: number
+  }
+  imageUrl?: string
+}
+
+export interface NFTMetadata {
+  documentHash: string;
+  uploadTimestamp: number;
+  documentURI: string;
+  documentName: string;
+  documentType: string;
+}
