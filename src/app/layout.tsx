@@ -7,13 +7,12 @@ import { Toaster } from "@/components/ui/toaster";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
-import NavBar from "@/components/navbar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FUNDR",
-  description: "The decentralized crowd funding platform you can trust",
+  title: "Databank",
+  description: "The decentralized data bank you can trust",
 };
 
 export default function RootLayout({
@@ -26,7 +25,6 @@ export default function RootLayout({
       <body className={`${montserrat.className} bg-gray-950 text-white antialiased`}>
         <RecoilContextProvider>
           <Web3ContextProvider>
-            <NavBar />
 
             {children}
 
