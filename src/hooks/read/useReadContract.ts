@@ -19,7 +19,21 @@ export const useReadContract = () => {
     }, [account, contract]
   )
 
+  const getNFTMetadata = useCallback(
+    async (tokenId: number) => {
+      try {
+        if (account) {
+          const nftMetadata = await contract?.getDocumentMetadata(tokenId)
+          return nftMetadata
+        }
+      } catch (getUserNFTsError) {
+        console.log('getUserNFTsError', getUserNFTsError);
+      }
+    }, [account, contract]
+  )
+
   return {
-    getUserNFTs
+    getUserNFTs,
+    getNFTMetadata
   }
 }

@@ -1,18 +1,20 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
-import { useWeb3React } from "@web3-react/core";
 import { Coins } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog"
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { useMintDocument } from "@/hooks/write/useMintDocument";
+import { useRecoilValue } from "recoil";
+import { loadingState } from "../state/atom";
 
 const UploadAndMint = () => {
   const [file, setFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-  const { account } = useWeb3React();
+  const loading = useRecoilValue(loadingState)
+  const { uploadToIpfs } = useMintDocument()
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const selectedFile = event.target.files?.[0];
@@ -32,55 +34,6 @@ const UploadAndMint = () => {
     if (droppedFile) {
       setFile(droppedFile);
       setFileName("");
-    }
-  };
-
-  const uploadFile = async (user_wallet_address: string | undefined, document: File, document_name: string): Promise<void> => {
-    const formData = new FormData();
-    formData.append("document", document);
-    if (user_wallet_address) {
-      formData.append("user_wallet_address", user_wallet_address);
-    }
-    formData.append("document_name", document_name);
-
-    try {
-      const response = await fetch("https://rational-kyle-shagbaortechnology-a92622c9.koyeb.app/api/document-upload/", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to upload file");
-      }
-
-      const result = await response.json();
-      console.log("File uploaded successfully:", result);
-    } catch (error) {
-      console.error("Error uploading file:", error);
-      throw error;
-    } finally {
-      setFile(null);
-      setFileName("");
-    }
-  };
-
-  const handleMintClick = async (): Promise<void> => {
-    if (file && fileName) {
-      setLoading(true);
-      try {
-        await uploadFile(account, file, fileName);
-        alert("File uploaded successfully!");
-      } catch (error) {
-        if (error instanceof Error) {
-          alert("Upload failed: " + error.message);
-        } else {
-          alert("Upload failed: An unknown error occurred.");
-        }
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      alert("Please select a file and provide a name.");
     }
   };
 
@@ -129,7 +82,7 @@ const UploadAndMint = () => {
                 )}
               </div>
               
-              <Button onClick={handleMintClick} className="flex gap-x-4 items-center justify-center px-5 py-3 btn text-lg hover:bg-[#2B9DDA] mt-7 w-full max-w-xs place-self-center">
+              <Button onClick={() => uploadToIpfs(file, fileName)} className="flex gap-x-4 items-center justify-center px-5 py-3 btn text-lg hover:bg-[#2B9DDA] mt-7 w-full max-w-xs place-self-center">
                 <Coins size={17} />
                 Mint
               </Button>
