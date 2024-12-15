@@ -46,7 +46,7 @@ const Dashboad = () => {
   return (
     <main className="h-screen overflow-hidden container pt-14">
       {/* All Documents Section */}
-      <div className="md:flex justify-between items-start mb-4">
+      <div className="md:flex justify-between items-start space-y-6">
         <div className='space-y-2'>
           <h2 className="text-3xl">My Bank</h2>
           <article className="">Here you can manage and track your documents.</article>
