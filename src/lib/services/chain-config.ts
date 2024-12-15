@@ -14,7 +14,7 @@ type ChainInfo = {
 
 export const CHAIN_INFO: { [key: number]: ChainInfo } = {
   5003: {
-    explorer: "https://explorer.sepolia.mantle.xyz",
+    explorer: "https://sepolia.mantlescan.xyz",
     label: "Mantle Sepolia",
     nativeCurrency: { name: "MNT", symbol: "MNT", decimals: 18 },
     rpcUrl: "https://rpc.sepolia.mantle.xyz",

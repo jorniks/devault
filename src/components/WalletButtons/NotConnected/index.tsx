@@ -61,7 +61,7 @@ const NotConnectedWalletButton = ({buttonClass = ""}) => {
           Connect Wallet
         </DialogTrigger>
 
-        <DialogContent className="max-w-sm w-full bg-gradient-bg text-white border-0">
+        <DialogContent className="max-w-sm w-full bg-zinc-900 text-white border-0">
           <DialogHeader>
             <DialogTitle>Connect wallet</DialogTitle>
             <DialogDescription>Click any of the below icons to connect your wallet to the app.</DialogDescription>
@@ -90,7 +90,7 @@ const InstallMetamaskButton = ({
   iconName: string;
 }) => {
   return (
-    <Link href={METAMASK_URL} target="_blank" className="col-span-6 sm:col-span-4 rounded-md btn spray-dark py-2 flex flex-col gap-y-3 items-center">
+    <Link href={METAMASK_URL} target="_blank" className="col-span-6 sm:col-span-4 rounded-md btn bg-white/20 py-2 flex flex-col gap-y-3 items-center">
       <Image width={50} height={50} src={`/img/${iconName}`} alt={walletName} className="" />
 
       <div className="font-medium text-xs text-center"> Install {walletName} </div>

@@ -1,4 +1,5 @@
 "use client"
+
 import { shortenAddress } from '@/functions/format';
 import useDisconnectFromWallet from '@/hooks/useDisconnectFromWallet';
 import { ConnectionType } from '@/lib/wallet/supported-connectors';
@@ -89,34 +90,33 @@ const ConnectedWalletButton = () => {
 
             <Dialog>
               <DialogTrigger asChild>
-                <div>
-                <SelectLabel className='pt-2 pb-0 text-xs text-gray-300 font-normal -ml-2'>Connection Info</SelectLabel>
-                <SelectLabel className="cursor-pointer hover:bg-white/20">Wallet</SelectLabel>
+                <div className="">
+                  <SelectLabel className='pt-2 pb-0 text-xs text-gray-300 font-normal -ml-2'>Connection Info</SelectLabel>
+                  <SelectLabel className="cursor-pointer hover:bg-white/20">Wallet</SelectLabel>
                 </div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-sm w-full bg-gradient-bg text-white border-0">
+              <DialogContent className="max-w-md w-full bg-zinc-900 text-white border-0">
                 <DialogHeader>
                   <DialogTitle>Account</DialogTitle>
                 </DialogHeader>
 
                 <div className="space-y-6 pb-4">
                   {/* Network */}
-                  <div className="py-3 bg-spray-900 rounded px-4 flex">
-                    <div className="my-auto">
-                      <div className="text-sm text-gray-400 mb-1 font-regular">
-                        Connected network
-                      </div>
-                      <div className="text-base font-medium">
-                        {chainId !== undefined && NETWORK_LABEL[chainId]}
-                      </div>
+                  <div className="py-3 bg-zinc-800 rounded px-4 flex">
+                    <div className="text-sm my-auto">
+                      <h6 className="text-gray-400 mb-1">Connected network</h6>
+                      <h6 className="text-lg font-medium">{chainId !== undefined && NETWORK_LABEL[chainId]}</h6>
+                      <h6 className='font-semibold'>
+                        <span className="font-normal">Balance:</span> {truncateValue(networkTokenBalance, 8)} {tokenSymbol}
+                      </h6>
                     </div>
                   </div>
 
                   {/* Wallet */}
                   <div className="space-y-5">
                     {/* Address */}
-                    <div className="relative flex items-center justify-between border-spray-600 rounded-full border-2 p-1.5 pl-4">
+                    <div className="relative flex items-center justify-between border-zinc-600 rounded-2xl border-2 p-1.5 pl-4">
                       <div className="">
                         <Image width={20} height={20} alt={`${connectionType} logo`} className="inline mr-[10px]" src={`/img/${connectionType?.toLowerCase()}.svg`} />
 
