@@ -8,6 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        indeterminate: {
+          "0%": { transform: "translateX(-100%)" },
+          "50%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" }
+        } 
+      },
+      
+      animation: {
+        indeterminate: 'indeterminate 5s infinite linear'
+      }
     },
   },
   plugins: [],
