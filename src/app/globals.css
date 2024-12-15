@@ -17,6 +17,10 @@
 }
 
 @layer components {
+  .container {
+    @apply w-full max-w-7xl mx-auto
+  }
+
   .btn {
     @apply bg-white text-black rounded-xl font-semibold hover:bg-gray-200 transition duration-200 text-sm
   }
