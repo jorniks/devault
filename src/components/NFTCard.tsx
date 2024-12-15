@@ -27,17 +27,17 @@ const NFTCard = ({ nftId }: { nftId: number }) => {
   
   return (
     <div className="">
-      <div onDoubleClick={() => handleNftDoubleClick(`https://${NFTInfo?.documentURI}`)}
+      <div onDoubleClick={() => handleNftDoubleClick(NFTInfo?.documentURI)}
         className="flex flex-col gap-1 p-3 bg-[#1E1E1E] rounded-md cursor-pointer border border-[#2B9DDA] hover:bg-[#3f3f3f] hover:border-gray-900 transition-colors h-11/12"
       >
-        <Image src={`https://${NFTInfo?.documentURI}`} alt={NFTInfo?.documentName} className="rounded-lg object-contain h-20 md:h-40 w-full" height={10000} width={10000} />
+        <Image src={NFTInfo?.documentURI} alt={NFTInfo?.documentName} className="rounded-lg object-contain h-20 md:h-40 w-full" height={10000} width={10000} />
 
         <div className="text-start mt-2 ml-2 mb-2 ">
           <h6 className="text-[#2B9DDA]">{NFTInfo?.documentName}</h6>
-          <h6 className="md:text-xl md:mb-2">{`https://${NFTInfo?.documentURI}`}</h6>
+          <h6 className="md:text-xl md:mb-2">{NFTInfo?.documentType}</h6>
         </div>
 
-        <Button onClick={() => handleNftDoubleClick(`https://${NFTInfo?.documentURI}`)} className="px-4 py-2 btn hover:bg-[#2B9DDA]">
+        <Button onClick={() => handleNftDoubleClick(NFTInfo?.documentURI)} className="px-4 py-2 btn hover:bg-[#2B9DDA]">
           View
         </Button>
       </div>

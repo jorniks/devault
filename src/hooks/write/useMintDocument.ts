@@ -79,6 +79,18 @@ export const useMintDocument = () => {
     async (document: any, fileName: string) => {
       setLoadingState(true)
 
+      if (!document) {
+        toast.error("Select a document to proceed")
+        setLoadingState(false)
+        return false
+      }
+
+      if (!fileName) {
+        toast.error("Enter document name to proceed")
+        setLoadingState(false)
+        return false
+      }
+
       try {
         const upload = await pinata.upload.file(document)
         
@@ -89,7 +101,7 @@ export const useMintDocument = () => {
 
         console.log(`File Url is : ${fileUrl}`)
         
-        mintDocument(upload.IpfsHash, fileUrl, fileName, fileExtension)
+        return mintDocument(upload.IpfsHash, fileUrl, fileName, fileExtension)
       } catch (uploadToIpfsError) {
         setLoadingState(false)
         console.log("uploadToIpfsError", uploadToIpfsError);

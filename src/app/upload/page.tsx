@@ -11,6 +11,7 @@ import { useRecoilValue } from "recoil";
 import { loadingState } from "../state/atom";
 
 const UploadAndMint = () => {
+  const [openModal, setOpenModal] = useState(false)
   const [file, setFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const loading = useRecoilValue(loadingState)
@@ -38,11 +39,8 @@ const UploadAndMint = () => {
   };
 
   return (
-    <Dialog onOpenChange={() => {
-      setFile(null);
-      setFileName("");
-    }}>
-      <DialogTrigger className="btn py-3 px-6 bg-[#2B9DDA] text-white hover:text-black border-2 border-white shadow-lg">
+    <Dialog open={openModal} onOpenChange={(openState) => { setFile(null); setFileName(""); setOpenModal(openState) }}>
+      <DialogTrigger onClick={() => setOpenModal(true)} className="btn py-3 px-6 bg-[#2B9DDA] text-white hover:text-black border-2 border-white shadow-lg">
         Upload New Document
       </DialogTrigger>
 
@@ -82,7 +80,7 @@ const UploadAndMint = () => {
                 )}
               </div>
               
-              <Button onClick={() => uploadToIpfs(file, fileName)} className="flex gap-x-4 items-center justify-center px-5 py-3 btn text-lg hover:bg-[#2B9DDA] mt-7 w-full max-w-xs place-self-center">
+              <Button onClick={() => uploadToIpfs(file, fileName).then(response => (response === true && setOpenModal(false)))} className="flex gap-x-4 items-center justify-center px-5 py-3 btn text-lg hover:bg-[#2B9DDA] mt-7 w-full max-w-xs place-self-center">
                 <Coins size={17} />
                 Mint
               </Button>
