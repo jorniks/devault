@@ -67,15 +67,24 @@ const ConnectedWalletButton = () => {
       </Select>
 
       <Select>
-        <SelectTrigger className="btn spray rounded-full py-3 font-medium ps-4">
+        <SelectTrigger className="btn py-3 ps-4">
           <SelectValue placeholder={account && shortenAddress(account)} />
         </SelectTrigger>
 
         <SelectContent className="">
           <SelectGroup className="">
-            <Link href="/my-campaigns">
-              <SelectLabel className="hover:bg-white/20">My Campaigns</SelectLabel>
-            </Link>
+            <div>
+              <SelectLabel className='pt-2 pb-0 text-xs text-gray-300 font-normal -ml-2'>Connected</SelectLabel>
+
+              <Link href="/dashboard">
+                <SelectLabel className="hover:bg-white/20">Dashboard</SelectLabel>
+              </Link>
+
+              <Link href="/upload">
+                <SelectLabel className="hover:bg-white/20">Upload Document</SelectLabel>
+              </Link>
+            </div>
+
             <SelectSeparator />
 
             <Dialog>

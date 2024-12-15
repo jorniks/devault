@@ -25,7 +25,7 @@ const NavBar = () => {
   const location = usePathname();
   
   return (
-    <div className="grid grid-cols-12 max-w-7xl mx-auto items-center bg-[#5e5e5e] bg-opacity-50 rounded-2xl py-4 px-6 mt-3 text-white z-10">
+    <div className="grid grid-cols-12 max-w-7xl mx-auto items-center bg-[#5e5e5e] bg-opacity-50 rounded-2xl py-4 px-6 mt-3 text-white z-10 sticky top-4">
       <div className="col-span-6 md:col-span-4 flex justify-start">
         <Image src="/img/logo.png" alt="Databank" className="h-8 w-auto" height={10000} width={10000} />
       </div>
