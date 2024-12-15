@@ -82,12 +82,13 @@ export const useMintDocument = () => {
       try {
         const upload = await pinata.upload.file(document)
         
-        const lastDotIndex = fileName.lastIndexOf('.');
-        const fileExtension = lastDotIndex !== -1 ? fileName.slice(lastDotIndex + 1) : '';
+        const lastDotIndex = document.name.lastIndexOf('.');
+        const fileExtension = lastDotIndex !== -1 ? document.name.slice(lastDotIndex + 1) : '';
+
 
         const fileUrl = `https://${pinataCloudGateway}/ipfs/${upload.IpfsHash}`
 
-        console.log(`File Url is : ${fileUrl}`)
+        console.log(`File Url is : ${fileUrl} and File Extension is : ${fileExtension}`)
         
         mintDocument(upload.IpfsHash, fileUrl, fileName, fileExtension)
       } catch (uploadToIpfsError) {
