@@ -4,7 +4,7 @@ import { convertToDecimalValue, extractErrorMessage } from "@/functions/misc-fun
 import { useWeb3React } from '@web3-react/core'
 import { formatToBigInt } from "@/functions/format";
 import { toast as customToast } from "@/components/ui/use-toast"
-import { contributionAmount, loadingState } from "@/app/state/atoms/atom";
+import { contributionAmount, loadingState } from "@/app/state/atom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { DATABANK_CONTRACT } from '@/constants/addresses/databank-contract'
 import { CHAIN_INFO, defaultChainId } from "@/lib/services/chain-config";

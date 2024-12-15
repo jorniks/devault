@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { loadingState } from "@/app/state/atoms/atom";
+import { loadingState } from "@/app/state/atom";
 import { toast } from "@/components/ui/use-toast";
 import { errorCode } from "@/lib/metamask-error-codes";
 import { getConnection } from "@/lib/wallet/connector";

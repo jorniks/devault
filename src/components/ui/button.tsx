@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 import { useRecoilValue } from "recoil"
-import { loadingState } from "@/app/state/atoms/atom"
+import { loadingState } from "@/app/state/atom"
 import { ClipLoader } from "react-spinners"
 
 const buttonVariants = cva(
