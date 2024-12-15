@@ -8,7 +8,7 @@ import { ConnectionType } from "@/lib/wallet/supported-connectors";
 import { Connector } from "@web3-react/types";
 import { useSetRecoilState } from "recoil";
 
-export default function useConnectToWallet(connectionType: ConnectionType, setOpen: React.Dispatch<React.SetStateAction<boolean>>) {
+export default function useConnectToWallet(connectionType: ConnectionType) {
   const setIsLoading = useSetRecoilState(loadingState)
 
   const tryActivateConnector = async (connector: Connector): Promise<ConnectionType | undefined> => {
@@ -26,7 +26,6 @@ export default function useConnectToWallet(connectionType: ConnectionType, setOp
 
       window?.localStorage.setItem('ConnectionType', activation)
 
-      setOpen(false)
       setIsLoading(false)
       return;
     } catch (connectWalletError: {} | any) {

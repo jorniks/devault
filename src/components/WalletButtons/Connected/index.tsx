@@ -36,12 +36,11 @@ import { useRouter } from 'next/navigation';
 const ConnectedWalletButton = () => {
   const router = useRouter()
   const { tokenSymbol, networkTokenBalance } = useNetworkTokenBalance()
-  const [open, setOpen] = useState<boolean>(false);
   const [addressCopied, setAddressCopied] = useState<boolean>(false);
   const { account, chainId, isActive } = useWeb3React();
   const storedConnectionType = window?.localStorage?.getItem("ConnectionType");
   const connectionType = storedConnectionType ? (storedConnectionType as ConnectionType) : null;
-  const disconnectWallet = useDisconnectFromWallet(setOpen);
+  const disconnectWallet = useDisconnectFromWallet();
   
   useEffect(() => {
     if (isActive && chainId !== defaultChainId) {

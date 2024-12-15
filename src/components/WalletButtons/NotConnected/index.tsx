@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -18,7 +18,6 @@ import { METAMASK_URL } from '@/lib/services/chain-config'
 
 
 const NotConnectedWalletButton = ({buttonClass = ""}) => {
-  const [open, setOpen] = useState(false);
 
   const walletOptions = useMemo(() => {
     return Object.keys(ConnectionType).map((walletKey, index) => {
@@ -44,7 +43,6 @@ const NotConnectedWalletButton = ({buttonClass = ""}) => {
             walletName={SUPPORTED_WALLETS[wallet].name}
             iconName={SUPPORTED_WALLETS[wallet].iconName}
             connectionType={ConnectionType[wallet]}
-            setOpen={setOpen}
           />
         );
       }

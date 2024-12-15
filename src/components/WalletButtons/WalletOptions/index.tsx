@@ -9,11 +9,10 @@ interface OptionsParam {
   walletName: string
   iconName: string
   connectionType: ConnectionType
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const WalletOption: FC<OptionsParam> = ({ walletName, iconName, connectionType, setOpen }) => {
-  const connectWallet = useConnectToWallet(connectionType, setOpen)
+const WalletOption: FC<OptionsParam> = ({ walletName, iconName, connectionType }) => {
+  const connectWallet = useConnectToWallet(connectionType)
   const router = useRouter()
 
   return (

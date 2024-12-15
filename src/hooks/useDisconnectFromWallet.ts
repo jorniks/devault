@@ -4,7 +4,7 @@ import { ConnectionType } from "@/lib/wallet/supported-connectors";
 import { Connector } from "@web3-react/types";
 
 
-export default function useDisconnectFromWallet(setOpen: React.Dispatch<React.SetStateAction<boolean>>) {
+export default function useDisconnectFromWallet() {
   const tryDeactivateConnector = async (connector: Connector): Promise<null | undefined> => {
     connector.deactivate?.()
     connector.resetState()
@@ -19,10 +19,10 @@ export default function useDisconnectFromWallet(setOpen: React.Dispatch<React.Se
       if (deactivation === undefined) return
       
       window?.localStorage?.removeItem('ConnectionType')
-      setOpen(false)
       return;
     } catch (disconnectWalletError) {
-      toast({variant: "error", description: "An error occured trying to disconnect wallet. Try again"})
+      toast({ variant: "error", description: "An error occured trying to disconnect wallet. Try again" })
+      console.log(disconnectWalletError);
     }
   }
 
