@@ -30,11 +30,9 @@ import { CHAIN_INFO, defaultChainId } from '@/lib/services/chain-config';
 import { copyToClipboard, truncateValue } from '@/functions/misc-functions';
 import { switchNetwork } from '@/lib/wallet/connector';
 import { LogOut } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 
 const ConnectedWalletButton = () => {
-  const router = useRouter()
   const { tokenSymbol, networkTokenBalance } = useNetworkTokenBalance()
   const [addressCopied, setAddressCopied] = useState<boolean>(false);
   const { account, chainId, isActive } = useWeb3React();
@@ -52,7 +50,7 @@ const ConnectedWalletButton = () => {
   return (
     <div className="w-full max-w-[8.5rem]">
       <Select>
-        <SelectTrigger className="btn py-3 ps-4">
+        <SelectTrigger className="btn text-sm py-3 ps-4">
           <SelectValue placeholder={account && shortenAddress(account)} />
         </SelectTrigger>
 
@@ -140,7 +138,7 @@ const ConnectedWalletButton = () => {
 
             <SelectSeparator />
 
-            <SelectLabel onClick={() => disconnectWallet().then(() => router.push("/"))} className='cursor-pointer hover:bg-chestnut-600/70 flex items-center justify-between'>
+            <SelectLabel onClick={disconnectWallet} className='cursor-pointer hover:bg-chestnut-600/70 flex items-center justify-between'>
               Disconnect
               <LogOut size={15} />
             </SelectLabel>

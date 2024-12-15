@@ -89,7 +89,7 @@ const UploadAndMint = () => {
       setFile(null);
       setFileName("");
     }}>
-      <DialogTrigger className="btn py-3 px-6 bg-[#2B9DDA] text-white hover:text-black border border-white shadow-lg">
+      <DialogTrigger className="btn py-3 px-6 bg-[#2B9DDA] text-white hover:text-black border-2 border-white shadow-lg">
         Upload New Document
       </DialogTrigger>
 

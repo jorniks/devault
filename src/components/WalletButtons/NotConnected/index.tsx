@@ -17,7 +17,7 @@ import { METAMASK_URL } from '@/lib/services/chain-config'
 
 
 
-const NotConnectedWalletButton = ({buttonClass = ""}) => {
+const NotConnectedWalletButton = () => {
 
   const walletOptions = useMemo(() => {
     return Object.keys(ConnectionType).map((walletKey, index) => {
@@ -55,7 +55,7 @@ const NotConnectedWalletButton = ({buttonClass = ""}) => {
   return (
     <div className="">
       <Dialog>
-        <DialogTrigger className={`btn p-2 md:px-5 md:py-4 ${buttonClass}`}>
+        <DialogTrigger className={`btn text-sm px-4 py-3`}>
           Connect Wallet
         </DialogTrigger>
 

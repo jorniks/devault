@@ -2,9 +2,12 @@ import { toast } from "@/components/ui/use-toast";
 import { getConnection } from "@/lib/wallet/connector";
 import { ConnectionType } from "@/lib/wallet/supported-connectors";
 import { Connector } from "@web3-react/types";
+import { useRouter } from "next/navigation";
 
 
 export default function useDisconnectFromWallet() {
+  const router = useRouter()
+
   const tryDeactivateConnector = async (connector: Connector): Promise<null | undefined> => {
     connector.deactivate?.()
     connector.resetState()
@@ -19,6 +22,7 @@ export default function useDisconnectFromWallet() {
       if (deactivation === undefined) return
       
       window?.localStorage?.removeItem('ConnectionType')
+      router.push("/")
       return;
     } catch (disconnectWalletError) {
       toast({ variant: "error", description: "An error occured trying to disconnect wallet. Try again" })
