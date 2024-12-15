@@ -13,17 +13,6 @@ export enum ApprovalType {
   APPROVED = 'APPROVED',
 }
 
-export interface NFT {
-  params: {
-    name: string
-    url: string
-    "url-b64": string
-    "unit-name": string
-    total: number
-  }
-  imageUrl?: string
-}
-
 export interface NFTMetadata {
   documentHash: string;
   uploadTimestamp: number;
