@@ -64,10 +64,6 @@ const ConnectedWalletButton = () => {
               <Link href="/dashboard">
                 <SelectLabel className="hover:bg-white/20">Dashboard</SelectLabel>
               </Link>
-
-              <Link href="/upload">
-                <SelectLabel className="hover:bg-white/20">Upload Document</SelectLabel>
-              </Link>
             </div>
 
             <SelectSeparator />

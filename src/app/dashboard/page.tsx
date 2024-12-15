@@ -7,6 +7,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useReadContract } from "@/hooks/read/useReadContract"
 import { useAppContract } from "@/hooks/services/useContract"
+import UploadAndMint from "../upload/page"
 
 const Dashboad = () => {
   const contract = useAppContract()
@@ -45,7 +46,14 @@ const Dashboad = () => {
   return (
     <main className="h-screen overflow-hidden container pt-14">
       {/* All Documents Section */}
-      <h2 className="">All NFTs</h2>
+      <div className="md:flex justify-between items-start mb-4">
+        <div className='space-y-2'>
+          <h2 className="text-3xl">My Bank</h2>
+          <article className="">Here you can manage and track your documents.</article>
+        </div>
+
+        <UploadAndMint />
+      </div>
 
       {loading ?
         <div className="w-full max-w-xl mx-auto my-auto space-y-4 pt-20 text-center">
