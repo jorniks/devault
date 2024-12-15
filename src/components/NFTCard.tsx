@@ -7,7 +7,7 @@ import { useReadContract } from '@/hooks/read/useReadContract'
 
 const NFTCard = ({ nftId }: { nftId: number }) => {
   const [fullscreenNftUrl, setFullscreenNftUrl] = useState("");
-  const [NFTInfo, setNFTInfo] = useState<NFTMetadata>({})
+  const [NFTInfo, setNFTInfo] = useState<NFTMetadata>(Object)
   const { getNFTMetadata } = useReadContract()
 
   const handleNftDoubleClick = (nftUrl: string) => {
@@ -28,12 +28,12 @@ const NFTCard = ({ nftId }: { nftId: number }) => {
   return (
     <div className="">
       <div onDoubleClick={() => handleNftDoubleClick(NFTInfo?.documentURI)}
-        className="flex flex-col gap-1 p-3 bg-[#1E1E1E] rounded-md cursor-pointer border border-[#2B9DDA] hover:bg-[#3f3f3f] hover:border-gray-900 transition-colors h-11/12"
+        className="flex flex-col gap-1 py-3 px-2 bg-[#2B9DDA]/40 rounded-lg cursor-pointer hover:-translate-y-1 transition-all duration-300"
       >
         <Image src={NFTInfo?.documentURI} alt={NFTInfo?.documentName} className="rounded-lg object-contain h-20 md:h-40 w-full" height={10000} width={10000} />
 
         <div className="text-start mt-2 ml-2 mb-2 ">
-          <h6 className="text-[#2B9DDA]">{NFTInfo?.documentName}</h6>
+          <h6 className="">{NFTInfo?.documentName}</h6>
           <h6 className="md:text-xl md:mb-2">{NFTInfo?.documentType}</h6>
         </div>
 

@@ -48,7 +48,7 @@ const ConnectedWalletButton = () => {
 
 
   return (
-    <div className="w-full max-w-[8.5rem]">
+    <div className="w-full max-w-[9.5rem]">
       <Select>
         <SelectTrigger className="btn text-sm py-3 ps-4">
           <SelectValue placeholder={account && shortenAddress(account)} />

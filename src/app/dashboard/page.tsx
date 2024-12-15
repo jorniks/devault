@@ -52,7 +52,7 @@ const Dashboad = () => {
       : !loading && nfts?.length === 0 ?
         <h6 className="text-center text-lg pt-20 text-white">You haven&apos;t minted an NFT yet.</h6>
       :
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-5 xl:gap-8 rounded-xl border sm:border-white md;border-none overflow-x-auto p-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-5 xl:gap-8 pt-10">
           {nfts?.map((nft, index) => (
             <NFTCard key={index} nftId={nft} />
           ))}
