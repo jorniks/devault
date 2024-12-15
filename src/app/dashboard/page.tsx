@@ -30,7 +30,7 @@ const Dashboad = () => {
   }, [contract, loadData]);
 
   return (
-    <main className="h-screen overflow-hidden container pt-14">
+    <main className="container pt-14">
       {/* All Documents Section */}
       <div className="md:flex justify-between items-center space-y-6">
         <div className='space-y-2'>
@@ -52,7 +52,7 @@ const Dashboad = () => {
       : !loading && nfts?.length === 0 ?
         <h6 className="text-center text-lg pt-20 text-white">You haven&apos;t minted an NFT yet.</h6>
       :
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-5 xl:gap-8 pt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 pt-10">
           {nfts?.map((nft, index) => (
             <NFTCard key={index} nftId={nft} />
           ))}

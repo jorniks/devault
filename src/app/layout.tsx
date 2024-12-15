@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-gray-950 text-white antialiased`}>
+      <body className={`${montserrat.className} bg-gray-950 text-white antialiased pb-20`}>
         <RecoilContextProvider>
           <Web3ContextProvider>
             <NavBar />
