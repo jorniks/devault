@@ -30,9 +30,11 @@ import { CHAIN_INFO, defaultChainId } from '@/lib/services/chain-config';
 import { copyToClipboard, truncateValue } from '@/functions/misc-functions';
 import { switchNetwork } from '@/lib/wallet/connector';
 import { LogOut } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 
 const ConnectedWalletButton = () => {
+  const router = useRouter()
   const { tokenSymbol, networkTokenBalance } = useNetworkTokenBalance()
   const [open, setOpen] = useState<boolean>(false);
   const [addressCopied, setAddressCopied] = useState<boolean>(false);
@@ -49,24 +51,7 @@ const ConnectedWalletButton = () => {
 
 
   return (
-    <div className="flex gap-y-3 sm:flex-row flex-col-reverse items-center gap-x-3">
-      <Select onValueChange={(newValue: string) => switchNetwork(Number(newValue), connectionType)}>
-        <SelectTrigger className="min-w-[9rem] bg-black/20">
-          <SelectValue placeholder="Balances" />
-        </SelectTrigger>
-
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>
-              <div className="font-semibold">
-                {tokenSymbol}
-                <p className="text-xs text-white/30">{ truncateValue(networkTokenBalance, 8) }</p>
-              </div>
-            </SelectLabel>
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-
+    <div className="w-full max-w-[8.5rem]">
       <Select>
         <SelectTrigger className="btn py-3 ps-4">
           <SelectValue placeholder={account && shortenAddress(account)} />
@@ -160,7 +145,7 @@ const ConnectedWalletButton = () => {
 
             <SelectSeparator />
 
-            <SelectLabel onClick={disconnectWallet} className='cursor-pointer hover:bg-chestnut-600/70 flex items-center justify-between'>
+            <SelectLabel onClick={() => disconnectWallet().then(() => router.push("/"))} className='cursor-pointer hover:bg-chestnut-600/70 flex items-center justify-between'>
               Disconnect
               <LogOut size={15} />
             </SelectLabel>
