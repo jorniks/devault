@@ -11,7 +11,7 @@ export const getProviderOrSigner = (provider: Web3Provider, account?: string): W
   return account ? getSigner(provider, account) : provider
 }
 
-export const getContract = (contractAddress: string, contractABI: {any}, provider: Web3Provider, account?: string): Contract => {
+export const getContract = (contractAddress: string, contractABI: any, provider: Web3Provider, account?: string): Contract => {
   if (!isAddress(contractAddress) || contractAddress === ZeroAddress) throw Error(`Invalid 'address' parameter '${contractAddress}'.`)
   
   return new Contract(contractAddress, contractABI, getProviderOrSigner(provider, account))
