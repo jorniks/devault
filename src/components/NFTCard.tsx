@@ -26,7 +26,7 @@ const NFTCard = ({ nftId }: { nftId: number }) => {
     <Dialog open={fullScreenMode} onOpenChange={setFullScreenMode}>
       <DialogTrigger>
         <div className="flex flex-col gap-1 py-3 px-2 bg-[#2B9DDA]/40 rounded-lg cursor-pointer hover:-translate-y-1 transition-all duration-300">
-          {imageTypes.includes(NFTInfo.documentType) ? (
+          {imageTypes.includes(NFTInfo.documentType.toLowerCase()) ? (
             <Image src={NFTInfo?.documentURI} alt={NFTInfo?.documentName} className="rounded-md w-auto h-60 object-cover" height={10000} width={10000} />
           ) : (
             <iframe
@@ -39,7 +39,7 @@ const NFTCard = ({ nftId }: { nftId: number }) => {
 
           <div className="text-start mt-2 ml-2 mb-2 ">
             <h6 className="text-[#2B9DDA]">{NFTInfo?.documentName}</h6>
-            <h6 className="md:text-xl md:mb-2">{NFTInfo?.documentType || 'jpg'}</h6>
+            <h6 className="md:text-xl md:mb-2">{NFTInfo?.documentType.toLowerCase() || 'jpg'}</h6>
           </div>
 
           <Button className="px-4 py-2 btn hover:bg-[#2B9DDA]">View</Button>
