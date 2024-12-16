@@ -50,7 +50,7 @@ const NFTCard = ({ nftId }: { nftId: number }) => {
         <DialogTitle></DialogTitle>
 
         <div className="h-[80vh]">
-          {NFTInfo.documentType === `${imageTypes[0]}` || NFTInfo.documentType === `${imageTypes[1]}` || NFTInfo.documentType === `${imageTypes[2]}` ? (
+          {imageTypes.includes(NFTInfo.documentType.toLowerCase()) ? (
             <Image src={NFTInfo?.documentURI} alt="Fullscreen NFT" className="w-auto h-full object-cover" height={10000} width={10000} />
           ) : (
             <iframe
