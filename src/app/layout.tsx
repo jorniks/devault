@@ -12,7 +12,7 @@ import NavBar from "@/components/navbar";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Databank",
+  title: "DeVault",
   description: "The decentralized data bank you can trust",
 };
 
