@@ -15,11 +15,7 @@
   }
   
   body {
-    background-image: url("/img/Home.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #010A1A;
   }
 
   main {
