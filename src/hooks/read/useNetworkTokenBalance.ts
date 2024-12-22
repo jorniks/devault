@@ -5,7 +5,7 @@ import { convertToDecimalValue } from "@/functions/misc-functions";
 export default function useNetworkTokenBalance() {
   const { account, provider } = useWeb3React();
   const [networkTokenBalance, setNetworkTokenBalance] = useState<number>(0)
-  const tokenSymbol = 'MNT'
+  const tokenSymbol = 'GAS'
 
   useEffect(() => {
     async function getTokenSymbol() {
