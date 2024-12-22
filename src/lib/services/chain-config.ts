@@ -1,5 +1,5 @@
 
-export const defaultChainId = 5003
+export const defaultChainId = 12227332
 
 type ChainInfo = {
   explorer: string
@@ -13,11 +13,11 @@ type ChainInfo = {
 }
 
 export const CHAIN_INFO: { [key: number]: ChainInfo } = {
-  5003: {
-    explorer: "https://sepolia.mantlescan.xyz",
-    label: "Mantle Sepolia",
-    nativeCurrency: { name: "MNT", symbol: "MNT", decimals: 18 },
-    rpcUrl: "https://rpc.sepolia.mantle.xyz",
+  12227332: {
+    explorer: "https://xt4scan.ngd.network",
+    label: "NeoX Testnet",
+    nativeCurrency: { name: "GAS", symbol: "GAS", decimals: 18 },
+    rpcUrl: "https://testnet.rpc.banelabs.org",
   },
 }
 

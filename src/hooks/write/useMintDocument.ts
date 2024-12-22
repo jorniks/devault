@@ -15,7 +15,7 @@ export const useMintDocument = () => {
   const contract = useAppContract()
   const { account, chainId } = useWeb3React()
   const setLoadingState = useSetRecoilState(loadingState)
-  const explorerURL = chainId && CHAIN_INFO[chainId].explorer
+  const explorerURL = chainId && CHAIN_INFO[chainId]?.explorer
   const pinata = new PinataSDK({
     pinataJwt: process.env.NEXT_PUBLIC_JWT_SECRET,
     pinataGateway: pinataCloudGateway

@@ -1,7 +1,7 @@
 import { Contract } from '@ethersproject/contracts';
 import ERC20_TOKEN_ABI from '@/constants/abis/token.json';
-import DATABANK_ABI from "@/constants/abis/databank.json"
-import { DATABANK_CONTRACT } from '@/constants/addresses/databank-contract'
+import DEVAULT_ABI from "@/constants/abis/databank.json"
+import { DEVAULT_CONTRACT } from '@/constants/addresses/databank-contract'
 import { Contract as StandardEthersContract } from 'ethers';
 import { ZeroAddress } from 'ethers';
 import { useWeb3React } from '@web3-react/core';
@@ -44,5 +44,5 @@ export const useTokenContract = (tokenAddress: string): Contract | StandardEther
 };
 
 export const useAppContract = (): Contract | StandardEthersContract | null => {
-  return useContract(DATABANK_CONTRACT, DATABANK_ABI);
+  return useContract(DEVAULT_CONTRACT, DEVAULT_ABI);
 };
